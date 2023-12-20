@@ -9,6 +9,7 @@ import { AxiosService } from '../axios.service';
 export class ContentComponent {
 
   	componentToShow: string = "login";
+	myerror:boolean= false;
 
 	constructor(private axiosService: AxiosService) { }
 
@@ -26,10 +27,11 @@ export class ContentComponent {
 		    }).then(
 		    response => {
 		        this.componentToShow = "messages";
+				this.myerror=false
 		    }).catch(
 		    error => {
-		       
-		        this.componentToShow = "welcome";
+				this.myerror=true;
+		        this.componentToShow = "login";
 		    }
 		);
 
@@ -46,11 +48,12 @@ export class ContentComponent {
 		        password: input.password
 		    }).then(
 		    response => {
+				this.myerror=false
 		        this.componentToShow = "messages";
 		    }).catch(
 		    error => {
-		        
-		        this.componentToShow = "welcome";
+				this.myerror=true;
+		        this.componentToShow = "login";
 		    }
 		);
 	}
