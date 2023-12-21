@@ -26,8 +26,10 @@ export class ContentComponent {
 		        password: input.password
 		    }).then(
 		    response => {
+				this.axiosService.setAuthToken(response.data.token);
 		        this.componentToShow = "messages";
-				this.myerror=false
+				this.myerror=false;
+				
 		    }).catch(
 		    error => {
 				this.myerror=true;
@@ -48,6 +50,7 @@ export class ContentComponent {
 		        password: input.password
 		    }).then(
 		    response => {
+				this.axiosService.setAuthToken(response.data.token);
 				this.myerror=false
 		        this.componentToShow = "messages";
 		    }).catch(
