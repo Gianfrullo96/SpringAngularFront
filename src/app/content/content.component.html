@@ -1,8 +1,9 @@
 <div>
 
     <app-welcome-content *ngIf="componentToShow == 'welcome'" />
-
-    <span *ngIf="myerror == true">retry</span>
+    <div class="d-flex justify-content-center bg-danger text-white">
+        <span *ngIf="myerror == true">RETRY</span>
+      </div>
     <app-login-form *ngIf="componentToShow == 'login'" 
         (onSubmitLoginEvent)="onLogin($event)"
         (onSubmitRegisterEvent)="onRegister($event)" />
